@@ -2,8 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <title>acenum</title>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <style type="text/css">
+        body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+        #allmap{width:100%;height:500px;}
+        p{margin-left:5px; font-size:14px;}
+        h3{
+            margin-top: 20px;
+            font-weight: lighter;
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=w8Gkog2WqoHj6oKp7HR5agXptIs4eMcG"></script>
     <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 </head>
 <body>
@@ -47,79 +58,30 @@
 
     </div>
 </div>
-<div class="container">
+
+<div>
+    <img src="img/contact.jpg" class="contactImg">
+    <div class="contactMinInfo">
+        <h1>联系我们</h1>
+        <h3>联系人：余晨晖 <span style="margin-left: 170px">邮箱：1029794688@qq.com</span></h3>
+        <h3>手机：13580881826 <span style="margin-left: 120px">固话：0755-28890126</span></h3>
+    </div>
+</div>
+<div class="container" style="margin-top: -4px;">
     <!--内容-->
-    <div class="actice">
-        <div class="headAct">
-            <h2 class="title">
-                近期新闻
-                <a href="javasript:;" class="chakan">
-                    查看全部
-                </a>
-            </h2>
-            <div style="clear: both;">
-            </div>
-        </div>
-        <div>
-            <div class="el-row">
-                <div class="el-col el-col-8" style="background-color: rgb(221, 230, 237);">
-                    <div class="stImg">
-                        <img src="./img/st4.3b3a61bb.jpg" alt="" style="width: 100%;">
-                    </div>
-                    <div class="word">
-                        <div class="category-name">
-                            新闻
-                        </div>
-                        <h3 class="stCn">
-                            XS9008高能量可循环智能电池(防水型)
-                        </h3>
-                        <span class="read-more">
-								更多
-							</span>
-                    </div>
-                </div>
-                <div class="el-col el-col-12 el-col-offset-2">
-                    <div class="item">
-                        <div class="time">
-                            新闻 | 2018年12月29日
-                        </div>
-                        <a href="http://acenum.cn/" class="itema">
-                            至善与莞工达成深度合作 开创内容生态合作新模式
-                        </a>
-                    </div>
-                    <div class="item" style="padding-top: 60px;">
-                        <div class="time">
-                            新闻 | 2018年12月29日
-                        </div>
-                        <a href="http://acenum.cn/" class="itema">
-                            至善与莞工达成深度合作 开创内容生态合作新模式
-                        </a>
-                    </div>
-                    <div class="item" style="padding-top: 60px;">
-                        <div class="time">
-                            新闻 | 2018年12月29日
-                        </div>
-                        <a href="http://acenum.cn/" class="itema">
-                            至善与莞工达成深度合作 开创内容生态合作新模式
-                        </a>
-                    </div>
-                    <div class="item" style="padding-top: 60px;">
-                        <div class="time">
-                            新闻 | 2018年12月29日
-                        </div>
-                        <a href="http://acenum.cn/" class="itema">
-                            至善与莞工达成深度合作 开创内容生态合作新模式
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <div>
+        <div style="max-width: 1136px;">
+            <a href="contact.html"><img src="img/aboutAcenum.png" alt="" style="width: 100%;height: 350px;"></a>
         </div>
     </div>
+    <div  id="map" class="mapStyle"></div>
+
+
 
 
 </div>
 <div  style="clear: both;"></div>
-<div class="collCon">
+<div class="collCon" style="margin-top: 5px;">
     <div class="container">
         <div class="el-row">
             <div class="el-col el-col-6">
@@ -153,5 +115,60 @@
 </div>
 <script type="text/javascript" src="js/carousel.js"></script>
 <script type="text/javascript" src="js/carousel2.js"></script>
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+        addMapOverlay();//向地图添加覆盖物
+    }
+    function createMap(){
+        map = new BMap.Map("map");
+        map.centerAndZoom(new BMap.Point(114.215421,22.664335),16);
+    }
+    function setMapEvent(){
+        map.enableScrollWheelZoom();
+        map.enableKeyboard();
+        map.enableDragging();
+        map.enableDoubleClickZoom()
+    }
+    function addClickHandler(target,window){
+        target.addEventListener("click",function(){
+            target.openInfoWindow(window);
+        });
+    }
+    function addMapOverlay(){
+        var markers = [
+            {content:"深圳市龙岗区园山街道广达路57号花生U谷3026号 ",title:"深圳至善数字信息科技有限公司",imageOffset: {width:0,height:3},position:{lat:22.66333,lng:114.212861}}
+        ];
+        for(var index = 0; index < markers.length; index++ ){
+            var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+            var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+                    imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+                })});
+            var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+            var opts = {
+                width: 200,
+                title: markers[index].title,
+                enableMessage: false
+            };
+            var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+            marker.setLabel(label);
+            addClickHandler(marker,infoWindow);
+            map.addOverlay(marker);
+        };
+    }
+    //向地图添加控件
+    function addMapControl(){
+        var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+        scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+        map.addControl(scaleControl);
+        var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+        map.addControl(navControl);
+    }
+    var map;
+    initMap();
+</script>
 </body>
 </html>
