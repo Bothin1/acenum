@@ -23,7 +23,7 @@
 .logo{
 	float: left;
 	width: 160px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     font-size: 30px;
     line-height: 65px;
     color: transparent;
@@ -242,29 +242,33 @@
 .test3 div p:nth-of-type(1){ transition-delay:0.05s;  }
 .test3 div p:nth-of-type(2){ transition-delay:0.2s;  }
 .test3 div p{
-	background: #FFF;
-	color: #333;
+	color: #FFF;
 	width: 600px;
 	padding: 13px;
 	margin-left: 180px;
 	margin-top: 40px;
 	font-size: 22px;
-	text-align: center;
+	/*text-align: center;*/
 	border-radius: 4px;
 	transform: translate(0px,100px);
 	opacity: 0;
 }
 .test3 div div{
-	border:1px solid #FFF;
+	/*border:1px solid #FFF;*/
 	width: 50%;
 	height: 30%;
 	position: absolute;
+    margin-left: 15%;
 	top: 10%;
 	left: 10%;
-	transform: translate(0px,-600px) rotate(0deg);	
+	/*transform: translate(0px,-600px) rotate(0deg);*/
+    text-align: center;
+    transform: translate(0px,0px);
+    line-height: 200px;
 }
 .test3:hover div div{
-	transform: translate(0px,0px) rotate(360deg);
+	transform: translate(0px,-200px);
+    opacity: 0;
 }
 .test3:hover img{
 	opacity: 0.8;
@@ -303,9 +307,9 @@
 	padding: 40px 100px;
 	background: #dce6ee;
     height: 80%;
-    margin-top: 71px;
+    margin-top: 8.6%;
     margin-left: 13px;
-    width: 30%;
+    width: 48%;
     overflow-wrap: break-word;
     float: left;
 }
@@ -319,6 +323,7 @@
     font-weight: bold;
 }
 .tCon{
+    color: #333;
 	display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
