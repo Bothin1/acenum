@@ -2,15 +2,6 @@
 	margin: 0;
 	padding: 0;
 }
-/*.container{
-	width: 100%!important;
-    max-width: 1128px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 11px;
-    padding-right: 11px;
-    z-index: 1;
-}*/
 .fixed{
 	position: fixed;
 	top: 0px;
@@ -435,13 +426,6 @@
 }
 .el-col-offset-2{
 	margin-left: 10%;
-}
-.collCon .el-row .el-col p{
-	display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
 }
 .mapStyle{
     margin-top: -4px;

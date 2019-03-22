@@ -10,6 +10,9 @@
         a:hover{
             text-decoration: none;
         }
+        .no_play_video{
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -126,8 +129,13 @@
         <div class="myVedio">
             <img src="./img/vedio.2dd8de90.jpg" alt="" style="width:100%;">
             <span class="circle">
-					<img src="./img/play.7b32175d.png" alt="" style="width:100%;">
-				</span>
+                <img src="./img/play.7b32175d.png"  style="width:100%;">
+            </span>
+        </div>
+        <div class="no_play_video" id="video_box">
+            <video autoplay controls  oncontextmenu="return false;"
+                   src="http://acenum.cn/assets/media/moive.4cc00289.mp4" width="100%">
+            </video>
         </div>
     </div>
     <div class="actice">
@@ -263,5 +271,13 @@
 </div>-->
 <script type="text/javascript" src="js/carousel.js"></script>
 <script type="text/javascript" src="js/carousel2.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.myVedio>.circle').click(function () {
+            $(".myVedio").addClass('no_play_video');
+            $("#video_box").removeClass('no_play_video');
+        })
+    })
+</script>
 </body>
 </html>
