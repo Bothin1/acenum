@@ -233,7 +233,7 @@
 .test3 div p:nth-of-type(1){ transition-delay:0.05s;  }
 .test3 div p:nth-of-type(2){ transition-delay:0.2s;  }
 .test3 div p{
-	color: #FFF;
+	color: black;
 	width: 600px;
 	padding: 13px;
 	margin-left: 180px;
