@@ -13,6 +13,9 @@
         .no_play_video{
             display: none;
         }
+        .play_video{
+            autoplay:"autoplay";
+        }
     </style>
 </head>
 <body>
@@ -133,9 +136,7 @@
             </span>
         </div>
         <div class="no_play_video" id="video_box">
-            <video autoplay controls  oncontextmenu="return false;"
-                   src="http://acenum.cn/assets/media/moive.4cc00289.mp4" width="100%">
-            </video>
+
         </div>
     </div>
     <div class="actice">
@@ -276,6 +277,9 @@
         $('.myVedio>.circle').click(function () {
             $(".myVedio").addClass('no_play_video');
             $("#video_box").removeClass('no_play_video');
+            $("#video_box").append('<video autoplay controls  oncontextmenu="return false;"\n' +
+                '                   src="http://acenum.cn/assets/media/moive.4cc00289.mp4" width="100%">\n' +
+                '            </video>');
         })
     })
 </script>

@@ -234,6 +234,7 @@
 .test3 div p:nth-of-type(2){ transition-delay:0.2s;  }
 .test3 div p{
 	color: black;
+    font-weight: normal;
 	width: 600px;
 	padding: 13px;
 	margin-left: 180px;
